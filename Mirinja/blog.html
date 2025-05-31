@@ -3,8 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discovering Mirinza Valley: A Journey Through Paradise</title>
+    <title>The Daily Chronicle | Patagonian Expedition</title>
     <style>
+        /* 19th Century Newspaper Color Palette */
+        :root {
+            --paper: #F5ECD7;
+            --paper-dark: #E8D9B5;
+            --ink: #2A2118;
+            --ink-light: #4D3E2A;
+            --accent: #8B5A2B;
+            --accent-dark: #5C3A1F;
+            --border: #C4B69A;
+        }
+
+        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -12,915 +24,462 @@
         }
 
         body {
-            font-family: 'Georgia', serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.5;
+            color: var(--ink);
+            background-color: var(--paper);
+            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path opacity="0.1" d="M0 0h100v100H0z" fill="%234d3e2a"/></svg>');
+            background-size: 200px 200px;
+            padding: 0;
+            margin: 0;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+        /* Newspaper Container */
+        .newspaper {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 3rem;
+            background-color: var(--paper);
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
         }
 
-        .blog-header {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            transform: translateY(0);
-            transition: all 0.6s ease;
+        /* Aged Paper Effect */
+        .newspaper::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                rgba(232, 217, 181, 0.8),
+                rgba(232, 217, 181, 0.2) 15%,
+                transparent 15.1%,
+                transparent 85%,
+                rgba(232, 217, 181, 0.2) 85.1%,
+                rgba(232, 217, 181, 0.8)
+            );
+            pointer-events: none;
         }
 
-        .blog-header.animate {
-            transform: translateY(-10px);
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Libre Baskerville', 'Times New Roman', serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--ink);
         }
 
-        .blog-title {
-            font-size: 3rem;
-            color: #2c3e50;
-            margin-bottom: 10px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        h1 {
+            font-size: 2.8rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 3px double var(--accent);
+            padding-bottom: 0.5rem;
         }
 
-        .blog-subtitle {
-            font-size: 1.2rem;
-            color: #7f8c8d;
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.3rem;
+            font-variant: small-caps;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 2rem;
             font-style: italic;
         }
 
-        .blog-content {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            text-align: justify;
+            hyphens: auto;
         }
 
-        .hero-image {
+        a {
+            color: var(--accent-dark);
+            text-decoration: underline;
+            text-decoration-color: var(--accent);
+            text-underline-offset: 2px;
+        }
+
+        a:hover {
+            color: var(--ink);
+        }
+
+        /* Header Styles */
+        .newspaper-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 3px double var(--accent);
+            padding-bottom: 1rem;
+        }
+
+        .newspaper-title {
+            font-family: 'Old English Text MT', 'Times New Roman', serif;
+            font-size: 3.5rem;
+            color: var(--ink);
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .newspaper-date {
+            font-style: italic;
+            color: var(--ink-light);
+        }
+
+        /* Post Header */
+        .post-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .post-meta {
+            font-style: italic;
+            color: var(--ink-light);
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .featured-image {
             width: 100%;
             height: 400px;
             object-fit: cover;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
+            margin: 2rem 0;
+            border: 1px solid var(--border);
+            filter: sepia(30%) contrast(110%);
+            box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
         }
 
-        .hero-image:hover {
-            transform: scale(1.02);
+        /* Content Styles */
+        .post-content {
+            margin-bottom: 3rem;
+            column-count: 2;
+            column-gap: 3rem;
+            column-rule: 1px solid var(--border);
         }
 
-        .section {
-            margin-bottom: 40px;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
+        @media (max-width: 768px) {
+            .post-content {
+                column-count: 1;
+            }
         }
 
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .post-content img {
+            max-width: 100%;
+            height: auto;
+            margin: 1.5rem auto;
+            display: block;
+            border: 1px solid var(--border);
+            filter: sepia(30%) contrast(110%);
         }
 
-        .section-title {
-            font-size: 2rem;
-            color: #2c3e50;
-            margin-bottom: 20px;
-            border-left: 4px solid #667eea;
-            padding-left: 20px;
+        blockquote {
+            border-left: 3px solid var(--accent);
+            padding: 0.5rem 1.5rem;
+            margin: 1.5rem 0;
+            background-color: var(--paper-dark);
+            font-style: italic;
+            font-family: 'Libre Baskerville', serif;
+            break-inside: avoid;
         }
 
-        .section-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            text-align: justify;
+        blockquote p {
+            margin-bottom: 0;
         }
 
-        .image-gallery {
+        .drop-cap::first-letter {
+            float: left;
+            font-size: 3.5rem;
+            line-height: 0.8;
+            padding: 0.1rem 0.3rem 0 0;
+            font-family: 'Libre Baskerville', serif;
+            color: var(--accent-dark);
+        }
+
+        /* Gallery */
+        .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+            break-inside: avoid;
         }
 
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .gallery-item img {
+        .gallery img {
             width: 100%;
-            height: 250px;
+            height: 150px;
             object-fit: cover;
+            border: 1px solid var(--border);
+            filter: sepia(50%) contrast(110%);
             transition: transform 0.3s ease;
+            cursor: pointer;
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.1);
+        .gallery img:hover {
+            transform: scale(1.03);
+            filter: sepia(30%) contrast(120%);
         }
 
-        .gallery-overlay {
+        /* Video Embed */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            margin: 2rem 0;
+            break-inside: avoid;
+            border: 1px solid var(--border);
+        }
+
+        .video-container iframe {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-            color: white;
-            padding: 20px;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            transform: translateY(0);
-        }
-
-        .highlight-box {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin: 30px 0;
-            text-align: center;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .highlight-box h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-        .tips-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .tip-card {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 15px;
-            border-left: 4px solid #667eea;
-            transition: transform 0.3s ease;
-        }
-
-        .tip-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .tip-card h4 {
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            color: white;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
             top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
+            border: none;
         }
 
-        .modal-content {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 700px;
-            max-height: 80%;
-            object-fit: contain;
-            border-radius: 10px;
-            margin-top: 5%;
+        .caption {
+            font-size: 0.8rem;
+            text-align: center;
+            color: var(--ink-light);
+            margin-top: -1rem;
+            margin-bottom: 1.5rem;
         }
 
-        .close {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
+        /* Footer */
+        .post-footer {
+            border-top: 3px double var(--accent);
+            padding-top: 2rem;
+            margin-top: 3rem;
+            column-span: all;
         }
 
-        .close:hover {
-            color: #bbb;
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
         }
 
-        /* Enhanced Responsive Design */
-        
-        /* Large Desktop */
-        @media (min-width: 1400px) {
-            .container {
-                max-width: 1400px;
+        .tag {
+            background-color: var(--paper-dark);
+            color: var(--ink);
+            padding: 0.2rem 0.8rem;
+            border-radius: 0;
+            font-size: 0.8rem;
+            border: 1px solid var(--border);
+            font-variant: small-caps;
+        }
+
+        /* Decorative Elements */
+        .ornament {
+            text-align: center;
+            margin: 1.5rem 0;
+            color: var(--accent);
+            font-size: 1.5rem;
+            letter-spacing: 5px;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .newspaper {
+                padding: 1.5rem;
+                margin: 1rem;
             }
-            
-            .blog-title {
-                font-size: 3.5rem;
+
+            h1 {
+                font-size: 2rem;
             }
-            
-            .section-title {
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .newspaper-title {
                 font-size: 2.5rem;
             }
-            
-            .hero-image {
-                height: 500px;
+
+            .featured-image {
+                height: 250px;
             }
         }
 
-        /* Desktop */
-        @media (max-width: 1199px) {
-            .blog-title {
-                font-size: 2.8rem;
+        @media (max-width: 480px) {
+            .newspaper {
+                padding: 1rem;
             }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-        }
 
-        /* Tablet Landscape */
-        @media (max-width: 992px) {
-            .container {
-                padding: 15px;
-            }
-            
-            .blog-title {
-                font-size: 2.5rem;
-            }
-            
-            .blog-header, .blog-content {
-                padding: 30px;
-            }
-            
-            .section-title {
+            h1 {
                 font-size: 1.7rem;
             }
-            
-            .hero-image {
-                height: 350px;
-            }
-            
-            .image-gallery {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 15px;
-            }
-            
-            .tips-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            }
-        }
 
-        /* Tablet Portrait */
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-            
-            .blog-title {
-                font-size: 2.2rem;
-                line-height: 1.2;
-            }
-            
-            .blog-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .blog-header, .blog-content {
-                padding: 25px;
-                margin-bottom: 20px;
-            }
-            
-            .section-title {
-                font-size: 1.6rem;
-                margin-bottom: 15px;
-            }
-            
-            .section-text {
-                font-size: 1rem;
-                line-height: 1.7;
-            }
-            
-            .hero-image {
-                height: 280px;
-                margin-bottom: 25px;
-            }
-            
-            .image-gallery {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-            
-            .gallery-item img {
-                height: 220px;
-            }
-            
-            .tips-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-            
-            .tip-card {
-                padding: 20px;
-            }
-            
-            .highlight-box {
-                padding: 25px;
-                margin: 25px 0;
-            }
-            
-            .highlight-box h3 {
+            h2 {
                 font-size: 1.3rem;
             }
-            
-            .modal-content {
-                width: 95%;
-                margin-top: 10%;
-            }
-            
-            .close {
-                font-size: 30px;
-                top: 10px;
-                right: 20px;
-            }
-        }
 
-        /* Mobile Landscape */
-        @media (max-width: 576px) {
-            .container {
-                padding: 8px;
+            .newspaper-title {
+                font-size: 2rem;
             }
-            
-            .blog-title {
-                font-size: 1.8rem;
-                margin-bottom: 8px;
-            }
-            
-            .blog-subtitle {
-                font-size: 1rem;
-            }
-            
-            .blog-header, .blog-content {
-                padding: 20px;
-                border-radius: 15px;
-            }
-            
-            .section {
-                margin-bottom: 30px;
-            }
-            
-            .section-title {
-                font-size: 1.4rem;
-                margin-bottom: 12px;
-                padding-left: 15px;
-            }
-            
-            .section-text {
-                font-size: 0.95rem;
-                margin-bottom: 15px;
-            }
-            
-            .hero-image {
-                height: 220px;
-                border-radius: 10px;
-            }
-            
-            .gallery-item {
-                border-radius: 10px;
-            }
-            
-            .gallery-item img {
+
+            .featured-image {
                 height: 200px;
             }
-            
-            .gallery-overlay {
-                padding: 15px;
-            }
-            
-            .gallery-overlay h4 {
-                font-size: 1rem;
-                margin-bottom: 5px;
-            }
-            
-            .gallery-overlay p {
-                font-size: 0.9rem;
-            }
-            
-            .tip-card {
-                padding: 18px;
-                border-radius: 10px;
-            }
-            
-            .tip-card h4 {
-                font-size: 1rem;
-                margin-bottom: 8px;
-            }
-            
-            .tip-card p {
-                font-size: 0.9rem;
-            }
-            
-            .highlight-box {
-                padding: 20px;
-                border-radius: 10px;
-            }
-            
-            .highlight-box h3 {
-                font-size: 1.2rem;
-                margin-bottom: 10px;
-            }
-            
-            .highlight-box p {
-                font-size: 0.95rem;
-            }
-            
-            .footer {
-                padding: 20px;
-                margin-top: 30px;
-                font-size: 0.9rem;
-            }
-        }
 
-        /* Small Mobile */
-        @media (max-width: 375px) {
-            .container {
-                padding: 5px;
-            }
-            
-            .blog-title {
-                font-size: 1.6rem;
-            }
-            
-            .blog-header, .blog-content {
-                padding: 15px;
-            }
-            
-            .section-title {
-                font-size: 1.3rem;
-                padding-left: 12px;
-            }
-            
-            .hero-image {
-                height: 180px;
-            }
-            
-            .gallery-item img {
-                height: 180px;
-            }
-            
-            .modal-content {
-                width: 98%;
-                margin-top: 15%;
-            }
-            
-            .close {
-                font-size: 25px;
-                top: 5px;
-                right: 15px;
-            }
-        }
-
-        /* Ultra Small Mobile */
-        @media (max-width: 320px) {
-            .blog-title {
-                font-size: 1.4rem;
-            }
-            
-            .blog-header, .blog-content {
-                padding: 12px;
-            }
-            
-            .section-title {
-                font-size: 1.2rem;
-            }
-            
-            .hero-image {
-                height: 160px;
-            }
-            
-            .gallery-item img {
-                height: 160px;
-            }
-        }
-
-        /* Orientation specific styles */
-        @media (orientation: landscape) and (max-height: 500px) {
-            .hero-image {
-                height: 200px;
-            }
-            
-            .blog-header {
-                padding: 20px;
-            }
-            
-            .section {
-                margin-bottom: 25px;
-            }
-        }
-
-        /* High DPI displays */
-        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            .hero-image, .gallery-item img {
-                image-rendering: -webkit-optimize-contrast;
-                image-rendering: crisp-edges;
-            }
-        }
-
-        /* Touch device optimizations */
-        @media (hover: none) and (pointer: coarse) {
-            .gallery-item:hover {
-                transform: none;
-            }
-            
-            .gallery-item:active {
-                transform: scale(0.98);
-            }
-            
-            .tip-card:hover {
-                transform: none;
-            }
-            
-            .tip-card:active {
-                transform: scale(0.98);
-            }
-            
-            .gallery-overlay {
-                transform: translateY(0);
-                background: rgba(0, 0, 0, 0.6);
-            }
-        }
-
-        /* Print styles */
-        @media print {
-            body {
-                background: white;
-                color: black;
-            }
-            
-            .blog-header, .blog-content {
-                background: white;
-                box-shadow: none;
-            }
-            
-            .gallery-overlay {
-                display: none;
-            }
-            
-            .modal {
-                display: none;
+            .gallery {
+                grid-template-columns: 1fr;
             }
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header class="blog-header">
-            <h1 class="blog-title">Discovering Mirinza Valley</h1>
-            <p class="blog-subtitle">A Journey Through Nature's Hidden Paradise</p>
+    <div class="newspaper">
+        <!-- Newspaper Header -->
+        <header class="newspaper-header">
+            <div class="newspaper-title">The Daily Chronicle</div>
+            <div class="newspaper-date">Saturday, May 15, 1897 • Price One Penny</div>
         </header>
 
-        <main class="blog-content">
-            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Mirinza Valley Landscape" class="hero-image">
-
-            <div class="section">
-                <h2 class="section-title">The Journey Begins</h2>
-                <p class="section-text">
-                    My recent adventure to Mirinza Valley was nothing short of extraordinary. Nestled in the heart of pristine wilderness, this hidden gem offers a perfect escape from the hustle and bustle of city life. The journey to reach this valley itself was an adventure, winding through mountain roads that revealed breathtaking vistas at every turn.
-                </p>
-                <p class="section-text">
-                    As I approached the valley, the first thing that struck me was the sheer tranquility of the place. The air was crisp and clean, filled with the fresh scent of pine and wildflowers. It felt like stepping into a different world, where time moves at nature's pace.
-                </p>
+        <!-- Article Header -->
+        <header class="post-header">
+            <h1>Remarkable Expedition to the Patagonian Wilderness</h1>
+            <div class="post-meta">
+                By our Special Correspondent | Filed under EXPLORATION | <time datetime="1897-05-15">May 15, 1897</time>
             </div>
+            <img src="https://source.unsplash.com/random/1600x900/?patagonia,1890s" alt="Patagonia landscape" class="featured-image">
+        </header>
 
-            <div class="highlight-box">
-                <h3>Did You Know?</h3>
-                <p>Mirinza Valley is home to over 200 species of birds and rare alpine flowers that bloom only during specific seasons!</p>
-            </div>
+        <!-- Article Content -->
+        <div class="post-content">
+            <section>
+                <p class="drop-cap">There exists, in the southernmost reaches of our globe, a land so wild and untamed that it defies all modern conventions of civilization. Patagonia, that mysterious territory shared by Argentina and Chile, has been the subject of our recent expedition, from which we bring most extraordinary accounts.</p>
+                
+                <p>The wind, that ceaseless torment of the region, greeted our party with particular ferocity as we commenced our trek through the Torres del Paine sector. Our guide, a native of the region whose family has dwelled in these parts for generations, moved with an ease that belied the treacherous terrain. "The mountains have voices," he told us in broken Spanish, "but only the patient may hear them."</p>
+            </section>
 
-            <div class="section">
-                <h2 class="section-title">Natural Wonders</h2>
-                <div class="image-gallery">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Forest Trail">
-                        <div class="gallery-overlay">
-                            <h4>Enchanted Forest Trails</h4>
-                            <p>Winding paths through ancient woodlands</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Mountain Stream">
-                        <div class="gallery-overlay">
-                            <h4>Crystal Clear Streams</h4>
-                            <p>Pure mountain water flowing through the valley</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1464822759844-d150baec93e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Mountain Peak">
-                        <div class="gallery-overlay">
-                            <h4>Majestic Peaks</h4>
-                            <p>Towering mountains surrounding the valley</p>
-                        </div>
-                    </div>
+            <section>
+                <h2>Into the Unknown</h2>
+                <p>While most visitors content themselves with the established routes, our party sought the lesser-known eastern trails of the national park—paths trodden by few Europeans and rich with untouched vistas.</p>
+
+                <blockquote>
+                    "It is not the destination that shapes the man, but the trials endured along the path."
+                    <footer>— Dr. Reginald Thornberry, Expedition Leader</footer>
+                </blockquote>
+
+                <p>Our first considerable challenge presented itself in the form of the ascent to Laguna Azul. The trail, steep and often obscured by the region's characteristic low-hanging clouds, tested both our equipment and our resolve. Yet the reward—the lake's startling azure waters set against the granite sentinels that guard it—would humble even the most seasoned explorer.</p>
+            </section>
+
+            <!-- Image Gallery -->
+            <section>
+                <h2>Visual Documentation</h2>
+                <div class="gallery">
+                    <img src="https://source.unsplash.com/random/600x400/?patagonia,mountain,old" alt="Patagonian peaks">
+                    <img src="https://source.unsplash.com/random/600x400/?patagonia,lake,old" alt="Glacial lake">
+                    <img src="https://source.unsplash.com/random/600x400/?patagonia,forest,old" alt="Ancient forests">
+                    <img src="https://source.unsplash.com/random/600x400/?patagonia,wildlife,old" alt="Native fauna">
                 </div>
-                <p class="section-text">
-                    The valley is a masterpiece of natural architecture. Towering peaks create a protective embrace around lush meadows dotted with colorful wildflowers. Crystal-clear streams meander through the landscape, their gentle babbling providing a soothing soundtrack to the entire experience.
-                </p>
-            </div>
+                <p class="caption">Photographic plates from our expedition (developed on site using portable equipment)</p>
+            </section>
 
-            <div class="section">
-                <h2 class="section-title">Wildlife Encounters</h2>
-                <p class="section-text">
-                    One of the most memorable aspects of my visit was the incredible wildlife diversity. Early morning brought sightings of deer grazing peacefully in the meadows, while various bird species created a natural symphony. The valley seemed to be teeming with life, each creature perfectly adapted to this pristine environment.
-                </p>
-                <p class="section-text">
-                    I was particularly fascinated by the butterfly population. Countless species fluttered around the wildflower meadows, creating a living kaleidoscope of colors. It was a photographer's dream and a nature lover's paradise.
-                </p>
-            </div>
+            <section>
+                <h2>Notable Discoveries</h2>
+                <p>The Patagonian wilderness serves as both classroom and cathedral to those willing to learn its lessons. Among our most profound observations:</p>
 
-            <div class="section">
-                <h2 class="section-title">Adventure Activities</h2>
-                <div class="image-gallery">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Hiking Trail">
-                        <div class="gallery-overlay">
-                            <h4>Scenic Hiking</h4>
-                            <p>Multiple trails for all skill levels</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Valley View">
-                        <div class="gallery-overlay">
-                            <h4>Photography Spots</h4>
-                            <p>Countless opportunities for stunning shots</p>
-                        </div>
-                    </div>
+                <h3>I. On Adversity</h3>
+                <p>The most sublime vistas demand the most strenuous ascents. Our third day's march—a grueling twelve-hour ordeal through ever-changing terrain—culminated in a view of the Southern Patagonian Ice Field at sunset that this correspondent shall carry to his grave.</p>
+
+                <h3>II. On the Pace of Discovery</h3>
+                <p>Modern travel's greatest fallacy lies in its emphasis on speed. By establishing a semi-permanent camp in one valley for five days, we observed nuances of light and wildlife behavior invisible to the hurried traveler.</p>
+
+                <h3>III. On Communication</h3>
+                <p>Sharing maté with the local gauchos at a remote estancia demonstrated that meaningful exchange requires no common tongue. Mutual respect, the sharing of sustenance, and awe of the land created bonds no interpreter could facilitate.</p>
+            </section>
+
+            <!-- Video Embed (styled as a "moving picture" report) -->
+            <section>
+                <h2>Kinematographic Record</h2>
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/DV0i6Y5B8k8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-                <p class="section-text">
-                    The valley offers numerous activities for adventure enthusiasts. Hiking trails of varying difficulty levels wind through different sections of the valley, each offering unique perspectives and photo opportunities. The well-marked paths make it accessible for families while still providing challenging routes for experienced hikers.
-                </p>
-            </div>
+                <p class="caption">Moving picture record of the expedition (Lumière Brothers apparatus)</p>
+            </section>
 
-            <div class="section">
-                <h2 class="section-title">Travel Tips</h2>
-                <div class="tips-grid">
-                    <div class="tip-card">
-                        <h4>Best Time to Visit</h4>
-                        <p>Spring and early fall offer the most pleasant weather and optimal wildlife viewing opportunities.</p>
-                    </div>
-                    <div class="tip-card">
-                        <h4>What to Bring</h4>
-                        <p>Comfortable hiking boots, layers of clothing, camera, water bottles, and a sense of adventure!</p>
-                    </div>
-                    <div class="tip-card">
-                        <h4>Getting There</h4>
-                        <p>The valley is accessible by car with a short hike from the parking area. Public transport options are limited.</p>
-                    </div>
-                    <div class="tip-card">
-                        <h4>Stay Respectful</h4>
-                        <p>Follow Leave No Trace principles to preserve this beautiful location for future visitors.</p>
-                    </div>
-                </div>
-            </div>
+            <div class="ornament">❖ ❖ ❖</div>
 
-            <div class="highlight-box">
-                <h3>My Final Thoughts</h3>
-                <p>Mirinza Valley exceeded all my expectations. It's a place where you can truly disconnect from the digital world and reconnect with nature. Whether you're seeking adventure, tranquility, or simply a break from routine, this valley offers something special for everyone.</p>
-            </div>
-        </main>
+            <section>
+                <h2>Concluding Observations</h2>
+                <p>As we boarded the steamer for our return voyage, our boots still caked with Patagonian soil and our notebooks brimming with sketches and observations, one truth became abundantly clear: Patagonia does not merely show one new landscapes, but reveals new eyes with which to see them.</p>
 
-        <footer class="footer">
-            <p>© 2025 Travel Blog | Exploring the world one destination at a time</p>
-            <p>Have you been to Mirinza Valley? Share your experiences in the comments!</p>
+                <p>The mountains did indeed have voices, as our guide had promised. And now, returned to the cacophony of civilized life, this correspondent finds himself straining to hear their whispers above the din of modernity.</p>
+            </section>
+        </div>
+
+        <!-- Article Footer -->
+        <footer class="post-footer">
+            <div class="tags">
+                <span class="tag">Exploration</span>
+                <span class="tag">Patagonia</span>
+                <span class="tag">Scientific</span>
+                <span class="tag">Adventure</span>
+            </div>
+            <p><em>The Daily Chronicle</em> will continue reporting on this expedition in subsequent editions. Readers may submit inquiries to our offices at 142 Fleet Street.</p>
         </footer>
     </div>
 
-    <!-- Modal for image viewing -->
-    <div id="imageModal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="modalImage">
-    </div>
-
     <script>
-        // Animate header on page load
-        window.addEventListener('load', function() {
-            setTimeout(() => {
-                document.querySelector('.blog-header').classList.add('animate');
-            }, 500);
-        });
-
-        // Scroll animations
-        function animateOnScroll() {
-            const sections = document.querySelectorAll('.section');
-            const windowHeight = window.innerHeight;
+        // Add aged paper effect randomly
+        document.addEventListener('DOMContentLoaded', function() {
+            const newspaper = document.querySelector('.newspaper');
             
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                
-                if (sectionTop < windowHeight * 0.8) {
-                    section.classList.add('visible');
-                }
-            });
-        }
-
-        // Image modal functionality
-        const modal = document.getElementById('imageModal');
-        const modalImg = document.getElementById('modalImage');
-        const galleryImages = document.querySelectorAll('.gallery-item img, .hero-image');
-        const closeBtn = document.querySelector('.close');
-
-        galleryImages.forEach(img => {
-            img.addEventListener('click', function() {
-                modal.style.display = 'block';
-                modalImg.src = this.src;
-            });
-        });
-
-        closeBtn.addEventListener('click', function() {
-            modal.style.display = 'none';
-        });
-
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                modal.style.display = 'none';
+            // Create random ink spots
+            for (let i = 0; i < 10; i++) {
+                const inkSpot = document.createElement('div');
+                inkSpot.style.position = 'absolute';
+                inkSpot.style.width = Math.random() * 10 + 2 + 'px';
+                inkSpot.style.height = Math.random() * 10 + 2 + 'px';
+                inkSpot.style.backgroundColor = 'rgba(42, 33, 24, ' + Math.random() * 0.2 + ')';
+                inkSpot.style.borderRadius = '50%';
+                inkSpot.style.top = Math.random() * 100 + '%';
+                inkSpot.style.left = Math.random() * 100 + '%';
+                inkSpot.style.pointerEvents = 'none';
+                newspaper.appendChild(inkSpot);
             }
-        });
 
-        // Smooth scrolling for any internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Enhanced responsive parallax effect
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const heroImage = document.querySelector('.hero-image');
-            
-            // Only apply parallax on devices that support it well
-            if (heroImage && window.innerWidth > 768) {
-                heroImage.style.transform = `translateY(${scrolled * 0.3}px)`;
+            // Create random paper imperfections
+            for (let i = 0; i < 5; i++) {
+                const paperDamage = document.createElement('div');
+                paperDamage.style.position = 'absolute';
+                paperDamage.style.width = Math.random() * 50 + 20 + 'px';
+                paperDamage.style.height = '1px';
+                paperDamage.style.backgroundColor = 'transparent';
+                paperDamage.style.borderTop = '1px dashed rgba(92, 58, 31, 0.3)';
+                paperDamage.style.top = Math.random() * 100 + '%';
+                paperDamage.style.left = Math.random() * 100 + '%';
+                paperDamage.style.transform = 'rotate(' + (Math.random() * 30 - 15) + 'deg)';
+                paperDamage.style.pointerEvents = 'none';
+                newspaper.appendChild(paperDamage);
             }
-            
-            animateOnScroll();
-        });
 
-        // Responsive image loading optimization
-        function optimizeImages() {
-            const images = document.querySelectorAll('img');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        if (img.dataset.src) {
-                            img.src = img.dataset.src;
-                            img.removeAttribute('data-src');
-                        }
-                        observer.unobserve(img);
-                    }
+            // Simple gallery click effect
+            const galleryImages = document.querySelectorAll('.gallery img');
+            galleryImages.forEach(img => {
+                img.addEventListener('click', function() {
+                    // In a real implementation, this would open a lightbox
+                    alert('Examining plate ' + this.alt);
                 });
             });
-
-            images.forEach(img => {
-                observer.observe(img);
-            });
-        }
-
-        // Touch gesture support for mobile
-        let touchStartX = 0;
-        let touchStartY = 0;
-
-        document.addEventListener('touchstart', function(e) {
-            touchStartX = e.touches[0].clientX;
-            touchStartY = e.touches[0].clientY;
         });
-
-        document.addEventListener('touchmove', function(e) {
-            if (!touchStartX || !touchStartY) return;
-            
-            const touchEndX = e.touches[0].clientX;
-            const touchEndY = e.touches[0].clientY;
-            const diffX = touchStartX - touchEndX;
-            const diffY = touchStartY - touchEndY;
-            
-            // Prevent unwanted scrolling on mobile
-            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
-                // Horizontal swipe detected
-                if (modal.style.display === 'block') {
-                    modal.style.display = 'none';
-                }
-            }
-        });
-
-        // Responsive font sizing based on viewport
-        function adjustFontSizes() {
-            const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-            const root = document.documentElement;
-            
-            if (vw < 320) {
-                root.style.fontSize = '14px';
-            } else if (vw < 576) {
-                root.style.fontSize = '15px';
-            } else if (vw < 768) {
-                root.style.fontSize = '16px';
-            } else {
-                root.style.fontSize = '16px';
-            }
-        }
-
-        // Handle orientation changes
-        window.addEventListener('orientationchange', function() {
-            setTimeout(() => {
-                adjustFontSizes();
-                animateOnScroll();
-            }, 100);
-        });
-
-        // Debounced resize handler
-        let resizeTimeout;
-        window.addEventListener('resize', function() {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                adjustFontSizes();
-                animateOnScroll();
-            }, 250);
-        });
-
-        // Initialize animations
-        animateOnScroll();
-
-        // Add floating animation to tip cards
-        const tipCards = document.querySelectorAll('.tip-card');
-        tipCards.forEach((card, index) => {
-            card.style.animationDelay = `${index * 0.1}s`;
-        });
-
-        // Easter egg: Konami code for special effect
-        let konamiCode = [];
-        const konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
-        
-        document.addEventListener('keydown', function(e) {
-            konamiCode.push(e.keyCode);
-            if (konamiCode.length > konamiSequence.length) {
-                konamiCode.shift();
-            }
-            
-            if (JSON.stringify(konamiCode) === JSON.stringify(konamiSequence)) {
-                document.body.style.animation = 'rainbow 2s infinite';
-                setTimeout(() => {
-                    document.body.style.animation = '';
-                }, 5000);
-            }
-        });
-
-        // Add rainbow animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes rainbow {
-                0% { filter: hue-rotate(0deg); }
-                100% { filter: hue-rotate(360deg); }
-            }
-        `;
-        document.head.appendChild(style);
     </script>
 </body>
 </html>
