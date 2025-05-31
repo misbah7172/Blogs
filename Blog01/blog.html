@@ -3,924 +3,661 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discovering Mirinza Valley: A Journey Through Paradise</title>
+    <title>Wanderlust Chronicles | Blog Post</title>
     <style>
+        /* CSS Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
-        body {
-            font-family: 'Georgia', serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+        
+        :root {
+            --bg-color: #F9FAFB;
+            --text-color: #111827;
+            --primary-accent: #3B82F6;
+            --secondary-accent: #06B6D4;
+            --highlight: #E0F2FE;
+            --transition: all 0.3s ease;
         }
-
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            overflow-x: hidden;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            border-bottom: 2px solid var(--highlight);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        a {
+            color: var(--primary-accent);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--secondary-accent);
+        }
+        
+        /* Layout */
         .container {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 2rem;
         }
-
-        .blog-header {
+        
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-accent);
+        }
+        
+        .logo span {
+            color: var(--secondary-accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary-accent);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            transform: translateY(0);
-            transition: all 0.6s ease;
+            margin-bottom: 3rem;
         }
-
-        .blog-header.animate {
-            transform: translateY(-10px);
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
         }
-
-        .blog-title {
+        
+        .hero h1 {
             font-size: 3rem;
-            color: #2c3e50;
-            margin-bottom: 10px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
         }
-
-        .blog-subtitle {
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+        
+        .meta {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        /* Blog Content */
+        .blog-content {
+            padding: 2rem 0;
+        }
+        
+        .blog-article {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .intro {
             font-size: 1.2rem;
-            color: #7f8c8d;
+            color: var(--text-color);
+            margin-bottom: 2rem;
             font-style: italic;
         }
-
-        .blog-content {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .hero-image {
+        
+        /* Image Styles */
+        .blog-image {
             width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
+            height: auto;
+            border-radius: 8px;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
         }
-
-        .hero-image:hover {
+        
+        .blog-image:hover {
             transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
-
-        .section {
-            margin-bottom: 40px;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
+        
+        .image-caption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #6B7280;
+            margin-top: -1.5rem;
+            margin-bottom: 2rem;
         }
-
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .section-title {
-            font-size: 2rem;
-            color: #2c3e50;
-            margin-bottom: 20px;
-            border-left: 4px solid #667eea;
-            padding-left: 20px;
-        }
-
-        .section-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            text-align: justify;
-        }
-
-        .image-gallery {
+        
+        /* Gallery */
+        .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
-
+        
         .gallery-item {
-            position: relative;
             overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .gallery-item img {
-            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
             height: 250px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
         }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-            color: white;
-            padding: 20px;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            transform: translateY(0);
-        }
-
-        .highlight-box {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin: 30px 0;
-            text-align: center;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .highlight-box h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-        .tips-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .tip-card {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 15px;
-            border-left: 4px solid #667eea;
-            transition: transform 0.3s ease;
-        }
-
-        .tip-card:hover {
+        
+        .gallery-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
-
-        .tip-card h4 {
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            color: white;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
+        
+        .gallery-img {
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
+            object-fit: cover;
+            transition: var(--transition);
         }
-
-        .modal-content {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 700px;
-            max-height: 80%;
-            object-fit: contain;
-            border-radius: 10px;
-            margin-top: 5%;
-        }
-
-        .close {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .close:hover {
-            color: #bbb;
-        }
-
-        /* Enhanced Responsive Design */
         
-        /* Large Desktop */
-        @media (min-width: 1400px) {
-            .container {
-                max-width: 1400px;
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.05);
+        }
+        
+        /* Video Embed */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            margin: 2rem 0;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Blockquote */
+        blockquote {
+            border-left: 4px solid var(--primary-accent);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            background-color: var(--highlight);
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        blockquote p {
+            margin-bottom: 0;
+            font-size: 1.2rem;
+            color: var(--text-color);
+        }
+        
+        /* Lists */
+        ul, ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 3rem;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--highlight);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary-accent);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            color: #6B7280;
+            font-size: 0.9rem;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 99;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--secondary-accent);
+            transform: translateY(-5px);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
             }
-            
-            .blog-title {
-                font-size: 3.5rem;
-            }
-            
-            .section-title {
-                font-size: 2.5rem;
-            }
-            
-            .hero-image {
-                height: 500px;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
-
-        /* Desktop */
-        @media (max-width: 1199px) {
-            .blog-title {
-                font-size: 2.8rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
+        
+        .fade-in {
+            animation: fadeInUp 0.8s ease both;
         }
-
-        /* Tablet Landscape */
-        @media (max-width: 992px) {
-            .container {
-                padding: 15px;
-            }
-            
-            .blog-title {
-                font-size: 2.5rem;
-            }
-            
-            .blog-header, .blog-content {
-                padding: 30px;
-            }
-            
-            .section-title {
-                font-size: 1.7rem;
-            }
-            
-            .hero-image {
-                height: 350px;
-            }
-            
-            .image-gallery {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 15px;
-            }
-            
-            .tips-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            }
-        }
-
-        /* Tablet Portrait */
+        
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .container {
-                padding: 10px;
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                transition: var(--transition);
             }
             
-            .blog-title {
-                font-size: 2.2rem;
-                line-height: 1.2;
+            .nav-links.active {
+                left: 0;
             }
             
-            .blog-subtitle {
+            .hamburger {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
                 font-size: 1.1rem;
             }
             
-            .blog-header, .blog-content {
-                padding: 25px;
-                margin-bottom: 20px;
+            .blog-article {
+                padding: 2rem 1.5rem;
             }
             
-            .section-title {
-                font-size: 1.6rem;
-                margin-bottom: 15px;
-            }
-            
-            .section-text {
-                font-size: 1rem;
-                line-height: 1.7;
-            }
-            
-            .hero-image {
-                height: 280px;
-                margin-bottom: 25px;
-            }
-            
-            .image-gallery {
+            .gallery {
                 grid-template-columns: 1fr;
-                gap: 15px;
-            }
-            
-            .gallery-item img {
-                height: 220px;
-            }
-            
-            .tips-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-            
-            .tip-card {
-                padding: 20px;
-            }
-            
-            .highlight-box {
-                padding: 25px;
-                margin: 25px 0;
-            }
-            
-            .highlight-box h3 {
-                font-size: 1.3rem;
-            }
-            
-            .modal-content {
-                width: 95%;
-                margin-top: 10%;
-            }
-            
-            .close {
-                font-size: 30px;
-                top: 10px;
-                right: 20px;
             }
         }
-
-        /* Mobile Landscape */
-        @media (max-width: 576px) {
+        
+        @media (max-width: 480px) {
             .container {
-                padding: 8px;
+                padding: 0 1.5rem;
             }
             
-            .blog-title {
-                font-size: 1.8rem;
-                margin-bottom: 8px;
+            .hero h1 {
+                font-size: 2rem;
             }
             
-            .blog-subtitle {
-                font-size: 1rem;
-            }
-            
-            .blog-header, .blog-content {
-                padding: 20px;
-                border-radius: 15px;
-            }
-            
-            .section {
-                margin-bottom: 30px;
-            }
-            
-            .section-title {
-                font-size: 1.4rem;
-                margin-bottom: 12px;
-                padding-left: 15px;
-            }
-            
-            .section-text {
-                font-size: 0.95rem;
-                margin-bottom: 15px;
-            }
-            
-            .hero-image {
-                height: 220px;
-                border-radius: 10px;
-            }
-            
-            .gallery-item {
-                border-radius: 10px;
-            }
-            
-            .gallery-item img {
-                height: 200px;
-            }
-            
-            .gallery-overlay {
-                padding: 15px;
-            }
-            
-            .gallery-overlay h4 {
-                font-size: 1rem;
-                margin-bottom: 5px;
-            }
-            
-            .gallery-overlay p {
-                font-size: 0.9rem;
-            }
-            
-            .tip-card {
-                padding: 18px;
-                border-radius: 10px;
-            }
-            
-            .tip-card h4 {
-                font-size: 1rem;
-                margin-bottom: 8px;
-            }
-            
-            .tip-card p {
-                font-size: 0.9rem;
-            }
-            
-            .highlight-box {
-                padding: 20px;
-                border-radius: 10px;
-            }
-            
-            .highlight-box h3 {
-                font-size: 1.2rem;
-                margin-bottom: 10px;
-            }
-            
-            .highlight-box p {
-                font-size: 0.95rem;
-            }
-            
-            .footer {
-                padding: 20px;
-                margin-top: 30px;
-                font-size: 0.9rem;
-            }
-        }
-
-        /* Small Mobile */
-        @media (max-width: 375px) {
-            .container {
-                padding: 5px;
-            }
-            
-            .blog-title {
-                font-size: 1.6rem;
-            }
-            
-            .blog-header, .blog-content {
-                padding: 15px;
-            }
-            
-            .section-title {
-                font-size: 1.3rem;
-                padding-left: 12px;
-            }
-            
-            .hero-image {
-                height: 180px;
-            }
-            
-            .gallery-item img {
-                height: 180px;
-            }
-            
-            .modal-content {
-                width: 98%;
-                margin-top: 15%;
-            }
-            
-            .close {
-                font-size: 25px;
-                top: 5px;
-                right: 15px;
-            }
-        }
-
-        /* Ultra Small Mobile */
-        @media (max-width: 320px) {
-            .blog-title {
-                font-size: 1.4rem;
-            }
-            
-            .blog-header, .blog-content {
-                padding: 12px;
-            }
-            
-            .section-title {
-                font-size: 1.2rem;
-            }
-            
-            .hero-image {
-                height: 160px;
-            }
-            
-            .gallery-item img {
-                height: 160px;
-            }
-        }
-
-        /* Orientation specific styles */
-        @media (orientation: landscape) and (max-height: 500px) {
-            .hero-image {
-                height: 200px;
-            }
-            
-            .blog-header {
-                padding: 20px;
-            }
-            
-            .section {
-                margin-bottom: 25px;
-            }
-        }
-
-        /* High DPI displays */
-        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            .hero-image, .gallery-item img {
-                image-rendering: -webkit-optimize-contrast;
-                image-rendering: crisp-edges;
-            }
-        }
-
-        /* Touch device optimizations */
-        @media (hover: none) and (pointer: coarse) {
-            .gallery-item:hover {
-                transform: none;
-            }
-            
-            .gallery-item:active {
-                transform: scale(0.98);
-            }
-            
-            .tip-card:hover {
-                transform: none;
-            }
-            
-            .tip-card:active {
-                transform: scale(0.98);
-            }
-            
-            .gallery-overlay {
-                transform: translateY(0);
-                background: rgba(0, 0, 0, 0.6);
-            }
-        }
-
-        /* Print styles */
-        @media print {
-            body {
-                background: white;
-                color: black;
-            }
-            
-            .blog-header, .blog-content {
-                background: white;
-                box-shadow: none;
-            }
-            
-            .gallery-overlay {
-                display: none;
-            }
-            
-            .modal {
-                display: none;
+            .meta {
+                flex-direction: column;
+                gap: 0.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header class="blog-header">
-            <h1 class="blog-title">Discovering Mirinza Valley</h1>
-            <p class="blog-subtitle">A Journey Through Nature's Hidden Paradise</p>
-        </header>
-
-        <main class="blog-content">
-            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Mirinza Valley Landscape" class="hero-image">
-
-            <div class="section">
-                <h2 class="section-title">The Journey Begins</h2>
-                <p class="section-text">
-                    My recent adventure to Mirinza Valley was nothing short of extraordinary. Nestled in the heart of pristine wilderness, this hidden gem offers a perfect escape from the hustle and bustle of city life. The journey to reach this valley itself was an adventure, winding through mountain roads that revealed breathtaking vistas at every turn.
-                </p>
-                <p class="section-text">
-                    As I approached the valley, the first thing that struck me was the sheer tranquility of the place. The air was crisp and clean, filled with the fresh scent of pine and wildflowers. It felt like stepping into a different world, where time moves at nature's pace.
-                </p>
-            </div>
-
-            <div class="highlight-box">
-                <h3>Did You Know?</h3>
-                <p>Mirinza Valley is home to over 200 species of birds and rare alpine flowers that bloom only during specific seasons!</p>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">Natural Wonders</h2>
-                <div class="image-gallery">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Forest Trail">
-                        <div class="gallery-overlay">
-                            <h4>Enchanted Forest Trails</h4>
-                            <p>Winding paths through ancient woodlands</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Mountain Stream">
-                        <div class="gallery-overlay">
-                            <h4>Crystal Clear Streams</h4>
-                            <p>Pure mountain water flowing through the valley</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1464822759844-d150baec93e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Mountain Peak">
-                        <div class="gallery-overlay">
-                            <h4>Majestic Peaks</h4>
-                            <p>Towering mountains surrounding the valley</p>
-                        </div>
-                    </div>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">Wanderlust<span>Chronicles</span></a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
                 </div>
-                <p class="section-text">
-                    The valley is a masterpiece of natural architecture. Towering peaks create a protective embrace around lush meadows dotted with colorful wildflowers. Crystal-clear streams meander through the landscape, their gentle babbling providing a soothing soundtrack to the entire experience.
-                </p>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Discovering Hidden Gems in Kyoto</h1>
+            <p>A journey through the lesser-known temples and gardens of Japan's ancient capital</p>
+            <div class="meta">
+                <span>Published: May 15, 2023</span>
+                <span>Category: Travel</span>
+                <span>Reading Time: 8 min</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <main class="container">
+        <article class="blog-article">
+            <div class="intro">
+                <p>Kyoto, the heart of traditional Japan, is famous for its golden pavilions and bamboo forests. But beyond the well-trodden tourist paths lie secret gardens, quiet temples, and neighborhoods where time seems to stand still. Join me as I explore these hidden treasures.</p>
             </div>
 
-            <div class="section">
-                <h2 class="section-title">Wildlife Encounters</h2>
-                <p class="section-text">
-                    One of the most memorable aspects of my visit was the incredible wildlife diversity. Early morning brought sightings of deer grazing peacefully in the meadows, while various bird species created a natural symphony. The valley seemed to be teeming with life, each creature perfectly adapted to this pristine environment.
-                </p>
-                <p class="section-text">
-                    I was particularly fascinated by the butterfly population. Countless species fluttered around the wildflower meadows, creating a living kaleidoscope of colors. It was a photographer's dream and a nature lover's paradise.
-                </p>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">Adventure Activities</h2>
-                <div class="image-gallery">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Hiking Trail">
-                        <div class="gallery-overlay">
-                            <h4>Scenic Hiking</h4>
-                            <p>Multiple trails for all skill levels</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Valley View">
-                        <div class="gallery-overlay">
-                            <h4>Photography Spots</h4>
-                            <p>Countless opportunities for stunning shots</p>
-                        </div>
-                    </div>
+            <h2>The Serenity of Shisen-dō</h2>
+            <p>My journey began in the northeastern hills of Kyoto, at Shisen-dō (詩仙堂), the "Hall of Poetic Immortals." Unlike the crowded Kinkaku-ji or Fushimi Inari, this 17th-century hermitage receives few visitors, allowing for moments of true contemplation.</p>
+            
+            <img src="https://images.unsplash.com/photo-1492571350019-22de08371fd3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Shisen-do garden in Kyoto" class="blog-image">
+            <p class="image-caption">The moss garden at Shisen-dō, designed to represent waves on the ocean</p>
+            
+            <p>The garden, designed by Ishikawa Jōzan, a retired samurai and scholar, is a masterpiece of borrowed scenery (shakkei). The carefully placed maple trees frame the distant Higashiyama mountains, making them appear as part of the garden itself. As I sat on the veranda, the only sounds were the rustling leaves and the occasional chime of a temple bell.</p>
+            
+            <blockquote>
+                <p>"In Kyoto, beauty hides in plain sight. You must learn to slow down, to look between the obvious landmarks, to hear the silence between the sounds."</p>
+            </blockquote>
+            
+            <h3>Practical Tips for Visiting</h3>
+            <ul>
+                <li>Visit in late November for the best autumn colors, or in June during the rainy season when the moss is at its greenest.</li>
+                <li>The temple opens at 9am - arriving early means you might have the place to yourself.</li>
+                <li>Don't miss the small tea house where you can enjoy matcha while overlooking the garden (¥500).</li>
+            </ul>
+            
+            <h2>Exploring the Philosopher's Path</h2>
+            <p>No visit to Kyoto is complete without walking the Philosopher's Path (Tetsugaku-no-michi), but most guidebooks will direct you to the cherry blossom-lined section near Ginkaku-ji. Few venture further south where the path becomes quieter, passing by lesser-known temples and artisan workshops.</p>
+            
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Philosopher's Path in autumn" class="gallery-img">
                 </div>
-                <p class="section-text">
-                    The valley offers numerous activities for adventure enthusiasts. Hiking trails of varying difficulty levels wind through different sections of the valley, each offering unique perspectives and photo opportunities. The well-marked paths make it accessible for families while still providing challenging routes for experienced hikers.
-                </p>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">Travel Tips</h2>
-                <div class="tips-grid">
-                    <div class="tip-card">
-                        <h4>Best Time to Visit</h4>
-                        <p>Spring and early fall offer the most pleasant weather and optimal wildlife viewing opportunities.</p>
-                    </div>
-                    <div class="tip-card">
-                        <h4>What to Bring</h4>
-                        <p>Comfortable hiking boots, layers of clothing, camera, water bottles, and a sense of adventure!</p>
-                    </div>
-                    <div class="tip-card">
-                        <h4>Getting There</h4>
-                        <p>The valley is accessible by car with a short hike from the parking area. Public transport options are limited.</p>
-                    </div>
-                    <div class="tip-card">
-                        <h4>Stay Respectful</h4>
-                        <p>Follow Leave No Trace principles to preserve this beautiful location for future visitors.</p>
-                    </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Small temple along the path" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Artisan workshop" class="gallery-img">
                 </div>
             </div>
-
-            <div class="highlight-box">
-                <h3>My Final Thoughts</h3>
-                <p>Mirinza Valley exceeded all my expectations. It's a place where you can truly disconnect from the digital world and reconnect with nature. Whether you're seeking adventure, tranquility, or simply a break from routine, this valley offers something special for everyone.</p>
+            
+            <p>About halfway along the path, I discovered a tiny soba noodle shop run by an elderly couple. Their handmade buckwheat noodles, served with a view of a miniature waterfall in their garden, became my favorite lunch spot in Kyoto.</p>
+            
+            <h2>Video: Morning Rituals at a Hidden Temple</h2>
+            <p>One of my most memorable experiences was being invited to observe the morning rituals at a small Zen temple not listed in any guidebooks. The head priest, who spoke some English, explained the significance of each gesture and chant.</p>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/example" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-        </main>
+            
+            <h2>Final Thoughts</h2>
+            <p>Kyoto rewards those who wander without rigid itineraries. By stepping away from the "must-see" lists and allowing time for unexpected discoveries, I found a Kyoto that felt more authentic and personal. The city's true magic lies not just in its famous landmarks, but in the quiet moments between them.</p>
+            
+            <h3>More Hidden Gems to Explore</h3>
+            <ol>
+                <li>Ōtagi Nenbutsu-ji - A temple with 1,200 whimsical rakan statues</li>
+                <li>Hōnen-in - A thatched-roof temple with beautiful moss gardens</li>
+                <li>Shōren-in - Known as the "Awadaguchi Palace" with stunning night illuminations</li>
+            </ol>
+            
+            <p>Have you discovered any hidden gems in Kyoto? Share your experiences in the comments below!</p>
+        </article>
+    </main>
 
-        <footer class="footer">
-            <p>© 2025 Travel Blog | Exploring the world one destination at a time</p>
-            <p>Have you been to Mirinza Valley? Share your experiences in the comments!</p>
-        </footer>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#" class="social-icon" aria-label="Facebook">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                    </svg>
+                </a>
+                <a href="#" class="social-icon" aria-label="Instagram">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                </a>
+                <a href="#" class="social-icon" aria-label="YouTube">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                        <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                    </svg>
+                </a>
+                <a href="#" class="social-icon" aria-label="GitHub">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                </a>
+            </div>
+            <p class="copyright">© 2023 Wanderlust Chronicles. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
     </div>
 
-    <!-- Modal for image viewing -->
-    <div id="imageModal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="modalImage">
-    </div>
-
+    <!-- JavaScript -->
     <script>
-        // Animate header on page load
-        window.addEventListener('load', function() {
-            setTimeout(() => {
-                document.querySelector('.blog-header').classList.add('animate');
-            }, 500);
-        });
-
-        // Scroll animations
-        function animateOnScroll() {
-            const sections = document.querySelectorAll('.section');
-            const windowHeight = window.innerHeight;
-            
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                
-                if (sectionTop < windowHeight * 0.8) {
-                    section.classList.add('visible');
-                }
-            });
-        }
-
-        // Image modal functionality
-        const modal = document.getElementById('imageModal');
-        const modalImg = document.getElementById('modalImage');
-        const galleryImages = document.querySelectorAll('.gallery-item img, .hero-image');
-        const closeBtn = document.querySelector('.close');
-
-        galleryImages.forEach(img => {
-            img.addEventListener('click', function() {
-                modal.style.display = 'block';
-                modalImg.src = this.src;
-            });
-        });
-
-        closeBtn.addEventListener('click', function() {
-            modal.style.display = 'none';
-        });
-
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
-
-        // Smooth scrolling for any internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Enhanced responsive parallax effect
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const heroImage = document.querySelector('.hero-image');
-            
-            // Only apply parallax on devices that support it well
-            if (heroImage && window.innerWidth > 768) {
-                heroImage.style.transform = `translateY(${scrolled * 0.3}px)`;
-            }
-            
-            animateOnScroll();
-        });
-
-        // Responsive image loading optimization
-        function optimizeImages() {
-            const images = document.querySelectorAll('img');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        if (img.dataset.src) {
-                            img.src = img.dataset.src;
-                            img.removeAttribute('data-src');
-                        }
-                        observer.unobserve(img);
-                    }
-                });
-            });
-
-            images.forEach(img => {
-                observer.observe(img);
-            });
-        }
-
-        // Touch gesture support for mobile
-        let touchStartX = 0;
-        let touchStartY = 0;
-
-        document.addEventListener('touchstart', function(e) {
-            touchStartX = e.touches[0].clientX;
-            touchStartY = e.touches[0].clientY;
-        });
-
-        document.addEventListener('touchmove', function(e) {
-            if (!touchStartX || !touchStartY) return;
-            
-            const touchEndX = e.touches[0].clientX;
-            const touchEndY = e.touches[0].clientY;
-            const diffX = touchStartX - touchEndX;
-            const diffY = touchStartY - touchEndY;
-            
-            // Prevent unwanted scrolling on mobile
-            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
-                // Horizontal swipe detected
-                if (modal.style.display === 'block') {
-                    modal.style.display = 'none';
-                }
-            }
-        });
-
-        // Responsive font sizing based on viewport
-        function adjustFontSizes() {
-            const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-            const root = document.documentElement;
-            
-            if (vw < 320) {
-                root.style.fontSize = '14px';
-            } else if (vw < 576) {
-                root.style.fontSize = '15px';
-            } else if (vw < 768) {
-                root.style.fontSize = '16px';
-            } else {
-                root.style.fontSize = '16px';
-            }
-        }
-
-        // Handle orientation changes
-        window.addEventListener('orientationchange', function() {
-            setTimeout(() => {
-                adjustFontSizes();
-                animateOnScroll();
-            }, 100);
-        });
-
-        // Debounced resize handler
-        let resizeTimeout;
-        window.addEventListener('resize', function() {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                adjustFontSizes();
-                animateOnScroll();
-            }, 250);
-        });
-
-        // Initialize animations
-        animateOnScroll();
-
-        // Add floating animation to tip cards
-        const tipCards = document.querySelectorAll('.tip-card');
-        tipCards.forEach((card, index) => {
-            card.style.animationDelay = `${index * 0.1}s`;
-        });
-
-        // Easter egg: Konami code for special effect
-        let konamiCode = [];
-        const konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
         
-        document.addEventListener('keydown', function(e) {
-            konamiCode.push(e.keyCode);
-            if (konamiCode.length > konamiSequence.length) {
-                konamiCode.shift();
-            }
-            
-            if (JSON.stringify(konamiCode) === JSON.stringify(konamiSequence)) {
-                document.body.style.animation = 'rainbow 2s infinite';
-                setTimeout(() => {
-                    document.body.style.animation = '';
-                }, 5000);
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+        
+        // Back to Top Button
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
             }
         });
-
-        // Add rainbow animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes rainbow {
-                0% { filter: hue-rotate(0deg); }
-                100% { filter: hue-rotate(360deg); }
-            }
-        `;
-        document.head.appendChild(style);
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Scroll Animation
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.blog-article h2, .blog-article h3, .blog-article p, .blog-image, blockquote, .gallery');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('fade-in');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+        
+        // Simple Blog Post System (for demonstration)
+        // In a real implementation, you would fetch from a database or API
+        const blogPosts = [
+            {
+                id: 1,
+                title: "Discovering Hidden Gems in Kyoto",
+                excerpt: "A journey through the lesser-known temples and gardens of Japan's ancient capital",
+                date: "May 15, 2023",
+                category: "Travel",
+                readTime: "8 min",
+                image: "kyoto.jpg",
+                content: "..." // Full content would go here
+            },
+            // More posts can be added here
+        ];
+        
+        // This function would be used to generate new posts in a blog listing page
+        function generateBlogPost(post) {
+            // Implementation for generating post HTML
+            // This is just a placeholder to show how you might structure it
+            return `
+                <article class="blog-post">
+                    <h2>${post.title}</h2>
+                    <p class="meta">${post.date} • ${post.category} • ${post.readTime}</p>
+                    <p>${post.excerpt}</p>
+                    <a href="post-${post.id}.html">Read More</a>
+                </article>
+            `;
+        }
     </script>
 </body>
 </html>
