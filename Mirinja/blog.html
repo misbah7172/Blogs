@@ -239,21 +239,367 @@
             color: #bbb;
         }
 
-        @media (max-width: 768px) {
-            .blog-title {
-                font-size: 2rem;
+        /* Enhanced Responsive Design */
+        
+        /* Large Desktop */
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 1400px;
             }
             
+            .blog-title {
+                font-size: 3.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-image {
+                height: 500px;
+            }
+        }
+
+        /* Desktop */
+        @media (max-width: 1199px) {
+            .blog-title {
+                font-size: 2.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Tablet Landscape */
+        @media (max-width: 992px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .blog-title {
+                font-size: 2.5rem;
+            }
+            
+            .blog-header, .blog-content {
+                padding: 30px;
+            }
+            
+            .section-title {
+                font-size: 1.7rem;
+            }
+            
+            .hero-image {
+                height: 350px;
+            }
+            
+            .image-gallery {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 15px;
+            }
+            
+            .tips-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+
+        /* Tablet Portrait */
+        @media (max-width: 768px) {
             .container {
                 padding: 10px;
             }
             
+            .blog-title {
+                font-size: 2.2rem;
+                line-height: 1.2;
+            }
+            
+            .blog-subtitle {
+                font-size: 1.1rem;
+            }
+            
             .blog-header, .blog-content {
-                padding: 20px;
+                padding: 25px;
+                margin-bottom: 20px;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+                margin-bottom: 15px;
+            }
+            
+            .section-text {
+                font-size: 1rem;
+                line-height: 1.7;
             }
             
             .hero-image {
-                height: 250px;
+                height: 280px;
+                margin-bottom: 25px;
+            }
+            
+            .image-gallery {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .gallery-item img {
+                height: 220px;
+            }
+            
+            .tips-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .tip-card {
+                padding: 20px;
+            }
+            
+            .highlight-box {
+                padding: 25px;
+                margin: 25px 0;
+            }
+            
+            .highlight-box h3 {
+                font-size: 1.3rem;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin-top: 10%;
+            }
+            
+            .close {
+                font-size: 30px;
+                top: 10px;
+                right: 20px;
+            }
+        }
+
+        /* Mobile Landscape */
+        @media (max-width: 576px) {
+            .container {
+                padding: 8px;
+            }
+            
+            .blog-title {
+                font-size: 1.8rem;
+                margin-bottom: 8px;
+            }
+            
+            .blog-subtitle {
+                font-size: 1rem;
+            }
+            
+            .blog-header, .blog-content {
+                padding: 20px;
+                border-radius: 15px;
+            }
+            
+            .section {
+                margin-bottom: 30px;
+            }
+            
+            .section-title {
+                font-size: 1.4rem;
+                margin-bottom: 12px;
+                padding-left: 15px;
+            }
+            
+            .section-text {
+                font-size: 0.95rem;
+                margin-bottom: 15px;
+            }
+            
+            .hero-image {
+                height: 220px;
+                border-radius: 10px;
+            }
+            
+            .gallery-item {
+                border-radius: 10px;
+            }
+            
+            .gallery-item img {
+                height: 200px;
+            }
+            
+            .gallery-overlay {
+                padding: 15px;
+            }
+            
+            .gallery-overlay h4 {
+                font-size: 1rem;
+                margin-bottom: 5px;
+            }
+            
+            .gallery-overlay p {
+                font-size: 0.9rem;
+            }
+            
+            .tip-card {
+                padding: 18px;
+                border-radius: 10px;
+            }
+            
+            .tip-card h4 {
+                font-size: 1rem;
+                margin-bottom: 8px;
+            }
+            
+            .tip-card p {
+                font-size: 0.9rem;
+            }
+            
+            .highlight-box {
+                padding: 20px;
+                border-radius: 10px;
+            }
+            
+            .highlight-box h3 {
+                font-size: 1.2rem;
+                margin-bottom: 10px;
+            }
+            
+            .highlight-box p {
+                font-size: 0.95rem;
+            }
+            
+            .footer {
+                padding: 20px;
+                margin-top: 30px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Small Mobile */
+        @media (max-width: 375px) {
+            .container {
+                padding: 5px;
+            }
+            
+            .blog-title {
+                font-size: 1.6rem;
+            }
+            
+            .blog-header, .blog-content {
+                padding: 15px;
+            }
+            
+            .section-title {
+                font-size: 1.3rem;
+                padding-left: 12px;
+            }
+            
+            .hero-image {
+                height: 180px;
+            }
+            
+            .gallery-item img {
+                height: 180px;
+            }
+            
+            .modal-content {
+                width: 98%;
+                margin-top: 15%;
+            }
+            
+            .close {
+                font-size: 25px;
+                top: 5px;
+                right: 15px;
+            }
+        }
+
+        /* Ultra Small Mobile */
+        @media (max-width: 320px) {
+            .blog-title {
+                font-size: 1.4rem;
+            }
+            
+            .blog-header, .blog-content {
+                padding: 12px;
+            }
+            
+            .section-title {
+                font-size: 1.2rem;
+            }
+            
+            .hero-image {
+                height: 160px;
+            }
+            
+            .gallery-item img {
+                height: 160px;
+            }
+        }
+
+        /* Orientation specific styles */
+        @media (orientation: landscape) and (max-height: 500px) {
+            .hero-image {
+                height: 200px;
+            }
+            
+            .blog-header {
+                padding: 20px;
+            }
+            
+            .section {
+                margin-bottom: 25px;
+            }
+        }
+
+        /* High DPI displays */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .hero-image, .gallery-item img {
+                image-rendering: -webkit-optimize-contrast;
+                image-rendering: crisp-edges;
+            }
+        }
+
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .gallery-item:hover {
+                transform: none;
+            }
+            
+            .gallery-item:active {
+                transform: scale(0.98);
+            }
+            
+            .tip-card:hover {
+                transform: none;
+            }
+            
+            .tip-card:active {
+                transform: scale(0.98);
+            }
+            
+            .gallery-overlay {
+                transform: translateY(0);
+                background: rgba(0, 0, 0, 0.6);
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .blog-header, .blog-content {
+                background: white;
+                box-shadow: none;
+            }
+            
+            .gallery-overlay {
+                display: none;
+            }
+            
+            .modal {
+                display: none;
             }
         }
     </style>
@@ -445,15 +791,98 @@
             });
         });
 
-        // Parallax effect for hero image
+        // Enhanced responsive parallax effect
         window.addEventListener('scroll', function() {
             const scrolled = window.pageYOffset;
             const heroImage = document.querySelector('.hero-image');
-            if (heroImage) {
-                heroImage.style.transform = `translateY(${scrolled * 0.5}px)`;
+            
+            // Only apply parallax on devices that support it well
+            if (heroImage && window.innerWidth > 768) {
+                heroImage.style.transform = `translateY(${scrolled * 0.3}px)`;
             }
             
             animateOnScroll();
+        });
+
+        // Responsive image loading optimization
+        function optimizeImages() {
+            const images = document.querySelectorAll('img');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                        }
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            images.forEach(img => {
+                observer.observe(img);
+            });
+        }
+
+        // Touch gesture support for mobile
+        let touchStartX = 0;
+        let touchStartY = 0;
+
+        document.addEventListener('touchstart', function(e) {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+        });
+
+        document.addEventListener('touchmove', function(e) {
+            if (!touchStartX || !touchStartY) return;
+            
+            const touchEndX = e.touches[0].clientX;
+            const touchEndY = e.touches[0].clientY;
+            const diffX = touchStartX - touchEndX;
+            const diffY = touchStartY - touchEndY;
+            
+            // Prevent unwanted scrolling on mobile
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                // Horizontal swipe detected
+                if (modal.style.display === 'block') {
+                    modal.style.display = 'none';
+                }
+            }
+        });
+
+        // Responsive font sizing based on viewport
+        function adjustFontSizes() {
+            const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+            const root = document.documentElement;
+            
+            if (vw < 320) {
+                root.style.fontSize = '14px';
+            } else if (vw < 576) {
+                root.style.fontSize = '15px';
+            } else if (vw < 768) {
+                root.style.fontSize = '16px';
+            } else {
+                root.style.fontSize = '16px';
+            }
+        }
+
+        // Handle orientation changes
+        window.addEventListener('orientationchange', function() {
+            setTimeout(() => {
+                adjustFontSizes();
+                animateOnScroll();
+            }, 100);
+        });
+
+        // Debounced resize handler
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                adjustFontSizes();
+                animateOnScroll();
+            }, 250);
         });
 
         // Initialize animations
