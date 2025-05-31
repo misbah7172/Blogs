@@ -3,262 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wanderlust Chronicles | Blog Post</title>
+    <title>Wanderlust Chronicles | Exploring the Unknown</title>
     <style>
-        /* CSS Reset and Base Styles */
+        /* Retro Color Palette */
+        :root {
+            --cream: #F5F5DC;
+            --rust: #D4A373;
+            --olive: #606C38;
+            --sage: #A7BEA9;
+            --taupe: #B7A196;
+            --slate: #3A506B;
+            --black: #1A1A1A;
+        }
+
+        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
-        :root {
-            --bg-color: #F9FAFB;
-            --text-color: #111827;
-            --primary-accent: #3B82F6;
-            --secondary-accent: #06B6D4;
-            --highlight: #E0F2FE;
-            --transition: all 0.3s ease;
-        }
-        
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Georgia', serif;
             line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            overflow-x: hidden;
+            color: var(--black);
+            background-color: var(--cream);
+            padding: 0;
+            margin: 0;
         }
-        
+
         /* Typography */
         h1, h2, h3, h4 {
-            font-weight: 600;
-            line-height: 1.2;
+            font-family: 'Palatino', serif;
+            font-weight: normal;
             margin-bottom: 1rem;
-            color: var(--text-color);
+            color: var(--olive);
         }
-        
+
         h1 {
             font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--rust);
+            padding-bottom: 0.5rem;
         }
-        
+
         h2 {
             font-size: 2rem;
-            border-bottom: 2px solid var(--highlight);
-            padding-bottom: 0.5rem;
-            margin-top: 2rem;
+            margin-top: 2.5rem;
+            border-left: 4px solid var(--rust);
+            padding-left: 1rem;
         }
-        
+
         h3 {
             font-size: 1.5rem;
-            margin-top: 1.5rem;
+            margin-top: 2rem;
         }
-        
+
         p {
             margin-bottom: 1.5rem;
             font-size: 1.1rem;
         }
-        
+
         a {
-            color: var(--primary-accent);
+            color: var(--slate);
             text-decoration: none;
-            transition: var(--transition);
+            transition: color 0.3s ease;
         }
-        
+
         a:hover {
-            color: var(--secondary-accent);
+            color: var(--rust);
+            text-decoration: underline;
         }
-        
+
         /* Layout */
         .container {
-            width: 100%;
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 2rem;
         }
-        
-        /* Header & Navigation */
-        header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 0;
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-accent);
-        }
-        
-        .logo span {
-            color: var(--secondary-accent);
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-        
-        .nav-links a {
-            font-weight: 500;
-            position: relative;
-        }
-        
-        .nav-links a:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--secondary-accent);
-            transition: var(--transition);
-        }
-        
-        .nav-links a:hover:after {
-            width: 100%;
-        }
-        
-        .hamburger {
-            display: none;
-            cursor: pointer;
-        }
-        
-        /* Hero Section */
-        .hero {
-            height: 60vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                        url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+
+        /* Header */
+        .post-header {
+            margin-bottom: 3rem;
             text-align: center;
+        }
+
+        .post-meta {
+            font-style: italic;
+            color: var(--taupe);
+            margin-bottom: 1.5rem;
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            margin: 2rem 0;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        /* Content Styles */
+        .post-content {
             margin-bottom: 3rem;
         }
-        
-        .hero-content {
-            max-width: 800px;
-            padding: 0 2rem;
+
+        .post-content img {
+            max-width: 100%;
+            height: auto;
+            margin: 1.5rem auto;
+            display: block;
+            border-radius: 4px;
         }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease 0.3s both;
-        }
-        
-        .meta {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.8);
-            animation: fadeInUp 1s ease 0.6s both;
-        }
-        
-        /* Blog Content */
-        .blog-content {
-            padding: 2rem 0;
-        }
-        
-        .blog-article {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            padding: 3rem;
-            margin-bottom: 3rem;
-        }
-        
-        .intro {
-            font-size: 1.2rem;
-            color: var(--text-color);
-            margin-bottom: 2rem;
+
+        blockquote {
+            border-left: 4px solid var(--rust);
+            padding: 1rem 1.5rem;
+            margin: 2rem 0;
+            background-color: rgba(212, 163, 115, 0.1);
             font-style: italic;
         }
-        
-        /* Image Styles */
-        .blog-image {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin: 2rem 0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
+
+        blockquote p {
+            margin-bottom: 0;
         }
-        
-        .blog-image:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .image-caption {
-            text-align: center;
-            font-size: 0.9rem;
-            color: #6B7280;
-            margin-top: -1.5rem;
-            margin-bottom: 2rem;
-        }
-        
+
         /* Gallery */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
             margin: 2rem 0;
         }
-        
-        .gallery-item {
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-            height: 250px;
-        }
-        
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .gallery-img {
+
+        .gallery img {
             width: 100%;
-            height: 100%;
+            height: 200px;
             object-fit: cover;
-            transition: var(--transition);
+            transition: transform 0.3s ease;
+            cursor: pointer;
         }
-        
-        .gallery-item:hover .gallery-img {
-            transform: scale(1.05);
+
+        .gallery img:hover {
+            transform: scale(1.02);
         }
-        
+
         /* Video Embed */
         .video-container {
             position: relative;
-            padding-bottom: 56.25%;
+            padding-bottom: 56.25%; /* 16:9 */
             height: 0;
             overflow: hidden;
             margin: 2rem 0;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-        
+
         .video-container iframe {
             position: absolute;
             top: 0;
@@ -267,397 +166,213 @@
             height: 100%;
             border: none;
         }
-        
-        /* Blockquote */
-        blockquote {
-            border-left: 4px solid var(--primary-accent);
-            padding: 1.5rem;
-            margin: 2rem 0;
-            background-color: var(--highlight);
-            font-style: italic;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        blockquote p {
-            margin-bottom: 0;
-            font-size: 1.2rem;
-            color: var(--text-color);
-        }
-        
-        /* Lists */
-        ul, ol {
-            margin-bottom: 1.5rem;
-            padding-left: 2rem;
-        }
-        
-        li {
-            margin-bottom: 0.5rem;
-        }
-        
+
         /* Footer */
-        footer {
-            background-color: white;
-            padding: 3rem 0;
-            text-align: center;
+        .post-footer {
+            border-top: 1px solid var(--taupe);
+            padding-top: 2rem;
             margin-top: 3rem;
-            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
         }
-        
-        .social-links {
+
+        .tags {
             display: flex;
-            justify-content: center;
-            gap: 1.5rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
             margin-bottom: 1.5rem;
         }
-        
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: var(--highlight);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-        }
-        
-        .social-icon:hover {
-            background-color: var(--primary-accent);
-            color: white;
-            transform: translateY(-3px);
-        }
-        
-        .copyright {
-            color: #6B7280;
+
+        .tag {
+            background-color: var(--sage);
+            color: var(--black);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
             font-size: 0.9rem;
         }
-        
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background-color: var(--primary-accent);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-            z-index: 99;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .back-to-top.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .back-to-top:hover {
-            background-color: var(--secondary-accent);
-            transform: translateY(-5px);
-        }
-        
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .fade-in {
-            animation: fadeInUp 0.8s ease both;
-        }
-        
-        /* Responsive Design */
+
+        /* Responsive Adjustments */
         @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background-color: white;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                gap: 2rem;
-                transition: var(--transition);
+            .container {
+                padding: 1.5rem;
             }
-            
-            .nav-links.active {
-                left: 0;
+
+            h1 {
+                font-size: 2rem;
             }
-            
-            .hamburger {
-                display: block;
+
+            h2 {
+                font-size: 1.7rem;
             }
-            
-            .hero h1 {
-                font-size: 2.5rem;
+
+            .featured-image {
+                height: 300px;
             }
-            
-            .hero p {
-                font-size: 1.1rem;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
             }
-            
-            .blog-article {
-                padding: 2rem 1.5rem;
+
+            h1 {
+                font-size: 1.8rem;
             }
-            
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .featured-image {
+                height: 200px;
+            }
+
             .gallery {
                 grid-template-columns: 1fr;
             }
         }
-        
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 1.5rem;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .meta {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
     </style>
 </head>
 <body>
-    <!-- Header & Navigation -->
-    <header>
-        <div class="container">
-            <nav>
-                <a href="index.html" class="logo">Wanderlust<span>Chronicles</span></a>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Me</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-                <div class="hamburger">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="3" y1="12" x2="21" y2="12"></line>
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <line x1="3" y1="18" x2="21" y2="18"></line>
-                    </svg>
+    <div class="container">
+        <article class="blog-post">
+            <!-- Post Header -->
+            <header class="post-header fade-in">
+                <h1>The Hidden Trails of Patagonia: A Journey to Remember</h1>
+                <div class="post-meta">
+                    Published on <time datetime="2023-05-15">May 15, 2023</time> • 8 min read
                 </div>
-            </nav>
-        </div>
-    </header>
+                <img src="https://source.unsplash.com/random/1600x900/?patagonia" alt="Patagonia landscape" class="featured-image">
+            </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Discovering Hidden Gems in Kyoto</h1>
-            <p>A journey through the lesser-known temples and gardens of Japan's ancient capital</p>
-            <div class="meta">
-                <span>Published: May 15, 2023</span>
-                <span>Category: Travel</span>
-                <span>Reading Time: 8 min</span>
-            </div>
-        </div>
-    </section>
+            <!-- Post Content -->
+            <div class="post-content">
+                <section class="fade-in delay-1">
+                    <p>There's something magical about Patagonia that defies description. The moment I set foot on its rugged terrain, I knew this journey would change my perspective on nature, solitude, and my own resilience.</p>
+                    
+                    <p>The wind howled relentlessly as we began our trek through Torres del Paine National Park. Our guide, a local Mapuche named Rafael, moved with an ease that belied the challenging terrain. "The mountains speak," he told us, "but you must learn to listen."</p>
+                </section>
 
-    <!-- Blog Content -->
-    <main class="container">
-        <article class="blog-article">
-            <div class="intro">
-                <p>Kyoto, the heart of traditional Japan, is famous for its golden pavilions and bamboo forests. But beyond the well-trodden tourist paths lie secret gardens, quiet temples, and neighborhoods where time seems to stand still. Join me as I explore these hidden treasures.</p>
+                <section class="fade-in delay-2">
+                    <h2>The Call of the Unknown</h2>
+                    <p>Most visitors stick to the well-trodden W Circuit, but we were after something different—the lesser-known trails that wind through the park's eastern sector. These paths see fewer hikers but offer vistas just as breathtaking.</p>
+
+                    <blockquote>
+                        "Adventure is not about the destination, but about the transformation that occurs along the way."
+                    </blockquote>
+
+                    <p>Our first challenge was the ascent to Laguna Azul. The trail was steep and often obscured by low-hanging clouds, but the reward was worth every labored breath. The lake's impossibly blue waters contrasted sharply with the surrounding granite peaks, creating a scene straight from a fantasy novel.</p>
+                </section>
+
+                <!-- Image Gallery -->
+                <section class="fade-in delay-1">
+                    <h2>Moments Captured</h2>
+                    <div class="gallery">
+                        <img src="https://source.unsplash.com/random/600x400/?patagonia,mountain" alt="Patagonia mountain">
+                        <img src="https://source.unsplash.com/random/600x400/?patagonia,lake" alt="Patagonia lake">
+                        <img src="https://source.unsplash.com/random/600x400/?patagonia,forest" alt="Patagonia forest">
+                        <img src="https://source.unsplash.com/random/600x400/?patagonia,wildlife" alt="Patagonia wildlife">
+                    </div>
+                </section>
+
+                <section class="fade-in delay-2">
+                    <h2>Lessons from the Land</h2>
+                    <p>Patagonia teaches you humility. The weather changes in minutes, trails disappear under sudden snowfall, and the sheer scale of the landscape makes you feel wonderfully insignificant. Here are three profound lessons I learned:</p>
+
+                    <h3>1. Embrace Discomfort</h3>
+                    <p>The most rewarding views often require the most challenging climbs. Our third day brought a grueling 12-hour hike through variable terrain, but the panoramic view of the Southern Patagonian Ice Field at sunset was a spiritual experience.</p>
+
+                    <h3>2. The Value of Slow Travel</h3>
+                    <p>In our rush to "see everything," we often see nothing at all. Spending five days in one valley allowed us to notice subtle changes in light, animal behaviors, and the rhythm of the natural world.</p>
+
+                    <h3>3. Connection Beyond Language</h3>
+                    <p>Sharing mate tea with gauchos at a remote estancia reminded me that meaningful connection transcends verbal language. A smile, a shared meal, and mutual respect for the land created bonds no dictionary could facilitate.</p>
+                </section>
+
+                <!-- Video Embed -->
+                <section class="fade-in delay-1">
+                    <h2>A Glimpse of the Journey</h2>
+                    <div class="video-container">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/DV0i6Y5B8k8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p class="caption">A short film capturing the essence of our Patagonian adventure (Credit: Wild Frontiers Media)</p>
+                </section>
+
+                <section class="fade-in delay-2">
+                    <h2>Final Thoughts</h2>
+                    <p>As I boarded the plane back to civilization, my boots still caked with Patagonian mud, I realized this journey had rewired my understanding of wilderness. The true magic of Patagonia isn't just in its postcard-perfect landscapes, but in the way it strips away pretense and reveals what really matters.</p>
+
+                    <p>The mountains did speak, as Rafael promised. And now, back in the noise of everyday life, I find myself straining to hear their whispers once more.</p>
+                </section>
             </div>
 
-            <h2>The Serenity of Shisen-dō</h2>
-            <p>My journey began in the northeastern hills of Kyoto, at Shisen-dō (詩仙堂), the "Hall of Poetic Immortals." Unlike the crowded Kinkaku-ji or Fushimi Inari, this 17th-century hermitage receives few visitors, allowing for moments of true contemplation.</p>
-            
-            <img src="https://images.unsplash.com/photo-1492571350019-22de08371fd3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Shisen-do garden in Kyoto" class="blog-image">
-            <p class="image-caption">The moss garden at Shisen-dō, designed to represent waves on the ocean</p>
-            
-            <p>The garden, designed by Ishikawa Jōzan, a retired samurai and scholar, is a masterpiece of borrowed scenery (shakkei). The carefully placed maple trees frame the distant Higashiyama mountains, making them appear as part of the garden itself. As I sat on the veranda, the only sounds were the rustling leaves and the occasional chime of a temple bell.</p>
-            
-            <blockquote>
-                <p>"In Kyoto, beauty hides in plain sight. You must learn to slow down, to look between the obvious landmarks, to hear the silence between the sounds."</p>
-            </blockquote>
-            
-            <h3>Practical Tips for Visiting</h3>
-            <ul>
-                <li>Visit in late November for the best autumn colors, or in June during the rainy season when the moss is at its greenest.</li>
-                <li>The temple opens at 9am - arriving early means you might have the place to yourself.</li>
-                <li>Don't miss the small tea house where you can enjoy matcha while overlooking the garden (¥500).</li>
-            </ul>
-            
-            <h2>Exploring the Philosopher's Path</h2>
-            <p>No visit to Kyoto is complete without walking the Philosopher's Path (Tetsugaku-no-michi), but most guidebooks will direct you to the cherry blossom-lined section near Ginkaku-ji. Few venture further south where the path becomes quieter, passing by lesser-known temples and artisan workshops.</p>
-            
-            <div class="gallery">
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Philosopher's Path in autumn" class="gallery-img">
+            <!-- Post Footer -->
+            <footer class="post-footer fade-in delay-1">
+                <div class="tags">
+                    <span class="tag">Travel</span>
+                    <span class="tag">Adventure</span>
+                    <span class="tag">Patagonia</span>
+                    <span class="tag">Hiking</span>
+                    <span class="tag">Nature</span>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Small temple along the path" class="gallery-img">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Artisan workshop" class="gallery-img">
-                </div>
-            </div>
-            
-            <p>About halfway along the path, I discovered a tiny soba noodle shop run by an elderly couple. Their handmade buckwheat noodles, served with a view of a miniature waterfall in their garden, became my favorite lunch spot in Kyoto.</p>
-            
-            <h2>Video: Morning Rituals at a Hidden Temple</h2>
-            <p>One of my most memorable experiences was being invited to observe the morning rituals at a small Zen temple not listed in any guidebooks. The head priest, who spoke some English, explained the significance of each gesture and chant.</p>
-            
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/example" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            
-            <h2>Final Thoughts</h2>
-            <p>Kyoto rewards those who wander without rigid itineraries. By stepping away from the "must-see" lists and allowing time for unexpected discoveries, I found a Kyoto that felt more authentic and personal. The city's true magic lies not just in its famous landmarks, but in the quiet moments between them.</p>
-            
-            <h3>More Hidden Gems to Explore</h3>
-            <ol>
-                <li>Ōtagi Nenbutsu-ji - A temple with 1,200 whimsical rakan statues</li>
-                <li>Hōnen-in - A thatched-roof temple with beautiful moss gardens</li>
-                <li>Shōren-in - Known as the "Awadaguchi Palace" with stunning night illuminations</li>
-            </ol>
-            
-            <p>Have you discovered any hidden gems in Kyoto? Share your experiences in the comments below!</p>
+                <p>Enjoyed this post? <a href="#">Explore more travel stories</a> or <a href="#">share your own Patagonia experiences</a> in the comments.</p>
+            </footer>
         </article>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="#" class="social-icon" aria-label="Facebook">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                    </svg>
-                </a>
-                <a href="#" class="social-icon" aria-label="Instagram">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                    </svg>
-                </a>
-                <a href="#" class="social-icon" aria-label="YouTube">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
-                        <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-                    </svg>
-                </a>
-                <a href="#" class="social-icon" aria-label="GitHub">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                    </svg>
-                </a>
-            </div>
-            <p class="copyright">© 2023 Wanderlust Chronicles. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- Back to Top Button -->
-    <div class="back-to-top">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 15l-6-6-6 6"/>
-        </svg>
     </div>
 
-    <!-- JavaScript -->
     <script>
-        // Mobile Navigation Toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
-        
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                hamburger.classList.remove('active');
-            });
-        });
-        
-        // Back to Top Button
-        const backToTopButton = document.querySelector('.back-to-top');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('active');
-            } else {
-                backToTopButton.classList.remove('active');
-            }
-        });
-        
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Scroll Animation
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.blog-article h2, .blog-article h3, .blog-article p, .blog-image, blockquote, .gallery');
+        // Simple fade-in animation as elements come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
             
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-                
-                if (elementPosition < screenPosition) {
-                    element.classList.add('fade-in');
-                }
+            const fadeObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                        fadeObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            fadeElements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                fadeObserver.observe(element);
             });
-        };
-        
-        window.addEventListener('scroll', animateOnScroll);
-        window.addEventListener('load', animateOnScroll);
-        
-        // Simple Blog Post System (for demonstration)
-        // In a real implementation, you would fetch from a database or API
-        const blogPosts = [
-            {
-                id: 1,
-                title: "Discovering Hidden Gems in Kyoto",
-                excerpt: "A journey through the lesser-known temples and gardens of Japan's ancient capital",
-                date: "May 15, 2023",
-                category: "Travel",
-                readTime: "8 min",
-                image: "kyoto.jpg",
-                content: "..." // Full content would go here
-            },
-            // More posts can be added here
-        ];
-        
-        // This function would be used to generate new posts in a blog listing page
-        function generateBlogPost(post) {
-            // Implementation for generating post HTML
-            // This is just a placeholder to show how you might structure it
-            return `
-                <article class="blog-post">
-                    <h2>${post.title}</h2>
-                    <p class="meta">${post.date} • ${post.category} • ${post.readTime}</p>
-                    <p>${post.excerpt}</p>
-                    <a href="post-${post.id}.html">Read More</a>
-                </article>
-            `;
-        }
+
+            // Simple gallery click effect
+            const galleryImages = document.querySelectorAll('.gallery img');
+            galleryImages.forEach(img => {
+                img.addEventListener('click', function() {
+                    // In a real implementation, this would open a lightbox
+                    console.log('Opening image viewer for:', this.alt);
+                });
+            });
+        });
+
+        // Smooth scroll for anchor links (if added later)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
 </body>
 </html>
